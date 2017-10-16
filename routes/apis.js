@@ -3,9 +3,9 @@
  * @Date: 2017-10-13 15:57:45
  * @version 0.0.1
   */
-var express = require('express');
-var router = express.Router();
-var URL = require('url');
+const express = require('express');
+const router = express.Router();
+const URL = require('url');
 
 /* GET home page. */
 router.get('/api/:id', function (req, res, next) {
