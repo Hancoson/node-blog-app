@@ -9,7 +9,7 @@
 ## Install
 
 ```sh
-$ git clone git://github.com/Hancoson／node-app.git
+$ git clone git://github.com/Hancoson/node-app.git
 
 $ yarn（npm install）
 ```

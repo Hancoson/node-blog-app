@@ -9,10 +9,6 @@ exports.getGroup = function (req, res) {
   blogdbs
     .find({})
     .exec(function (err, data) {
-      if (!data) {
-        res.json({code: 404, msg: "Empty"});
-      } else {
-        res.json({code: 0, msg: "success", data: data, count: data.length});
-      }
+      res.render('index', {data: data});
     });
 };

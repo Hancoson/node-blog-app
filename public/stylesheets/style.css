@@ -1,8 +1,24 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+header {
+  position: relative;
+  text-align: center;
+  background-color: #27ae60;
+  color: #fff;
+  margin-bottom: 0;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+header h1{
+  font-size: 40px;
+  text-shadow: -5px 5px 0 rgba(0, 0, 0, .1);
+}
+.content{
+  width: 1200px;
+  margin: 0 auto;
 }
 
-a {
-  color: #00B7FF;
+.add-btn{
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  color: #fff
 }

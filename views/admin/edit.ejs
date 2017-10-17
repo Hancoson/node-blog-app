@@ -1,11 +1,14 @@
-<% include layout/head %> 
+<% include ../layout/head %> 
     <header>
-        <h1>欢迎到来！</h1>
+        <h1>编辑文章</h1>
     </header>
     <div class="content">
-        <ul id="J_list">
-            
-        </ul>
+      <p>
+        标题：<input type="text" value=<%= title %> />
+      </p>
+      <p>
+        内容：<textarea><%= info %></textarea>
+      </p>
     </div>
 <script>
 $(function(){
@@ -22,7 +25,6 @@ $(function(){
                     '<h3>'+v.title+'</h3>',
                     '<p>'+v.info+'</p>',
                     '</a>',
-                    '<a href="articles/edit/'+v._id+'">编辑</a>',
                     '</li>'
                 ].join(''))
             })
@@ -31,4 +33,4 @@ $(function(){
     });
 })
 </script>
-<% include layout/foot %>
+<% include ../layout/foot %>

@@ -17,3 +17,7 @@ db.on('error', function (err) {
 db.on('disconnected', function () {
   console.log('Mongoose disconnected')
 });
+
+
+require('./articles');
+
