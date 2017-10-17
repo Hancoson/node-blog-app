@@ -8,5 +8,5 @@ module.exports = {
   webTitle: ' ', //web页面title
 
   /******* mongodbl*****相关配置*******/
-mongoose : 'mongodb://localhost:27017/nodeApp'
+mongoose : 'mongodb://localhost/nodeApp'
 };

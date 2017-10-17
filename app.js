@@ -5,7 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const myRoutes = require('./routes/index');
+require('./models/db')
 
 const app = express();
 
@@ -13,7 +13,8 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-myRoutes(app);
+require('./models/pages');
+require('./routes/pages')(app);
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

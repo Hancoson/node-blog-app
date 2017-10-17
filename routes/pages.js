@@ -1,16 +1,11 @@
 /**
- * @Author: Guoxing.han 
- * @Date: 2017-10-16 15:23:52 
- * @version 0.0.1 
+ * @Author: Guoxing.han
+ * @Date: 2017-10-16 15:23:52
+ * @version 0.0.1
   */
 const express = require('express');
-const router = express.Router();
 
-router.get('/1', function (req, res, next) {
-  res.render('index', {title: '1'});
-});
-router.get('/2', function (req, res, next) {
-  res.render('index', {title: '2'});
-});
-
-module.exports = router;
+module.exports = function (app) {
+  const blogdbs = require('./../app/controllers/pages');
+  app.get('/pages/get', blogdbs.getGroup);
+};
