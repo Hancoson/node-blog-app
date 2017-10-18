@@ -1,24 +1,35 @@
 header {
   position: relative;
   text-align: center;
-  background-color: #27ae60;
+  background: linear-gradient(45deg, #020031 0, #6d3353 100%);
   color: #fff;
   margin-bottom: 0;
   padding-bottom: 50px;
   padding-top: 20px;
 }
-header h1{
+
+header h1 {
   font-size: 40px;
   text-shadow: -5px 5px 0 rgba(0, 0, 0, .1);
 }
-.content{
-  width: 1200px;
-  margin: 0 auto;
-}
 
-.add-btn{
+.add-btn {
   position: absolute;
   right: 0;
   z-index: 10;
-  color: #fff
+}
+
+.home-items {
+  width: 100%;
+  margin-top: 20px;
+  list-style: none
+}
+
+.home-items li {
+  float: left;
+  padding: 20px;
+}
+
+.home-items li a {
+  color: #333;
 }

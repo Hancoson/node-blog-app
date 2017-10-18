@@ -1,5 +1,32 @@
 <% include layout/head %> 
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
 
+    <div class="container">
+    <h2 style="text-align:center;margin-bottom:10px;"><%= title %></h2>
+    <p style="text-align:center;margin-bottom:10px;color:#999;font-size:12px;">
+        发布时间：<%=publishTime%>&nbsp;&nbsp;&nbsp;
+        <a href="edit/<%=_id%>">编辑</a>&nbsp;&nbsp;&nbsp;
+        <a id="J_dele" href="javascript:void(0)">删除</a>
+    </p>
+    <p><%= info %></p>
+    </div>
+
+<script>
+$(function(){
+    var _deleBtn = $('#J_dele');
+
+    _deleBtn.on('click',function(){
+    $.ajax({
+            url: "http://localhost:8088/v1/dele",
+            type:"POST",
+            data:{
+                id:"<%=_id%>"
+            }
+        }).done(function(data) {
+            
+            window.location.href='http://localhost:8088'
+        });
+    })
+    
+})
+</script>
 <% include layout/foot %>

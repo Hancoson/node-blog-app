@@ -1,19 +1,19 @@
 <% include ../layout/head %> 
     <header>
-        <h1>编辑文章</h1>
+        <h1>新增文章</h1>
     </header>
     <div class="container">
-    <form class="form-horizontal" style="padding-top:50px;" data-id="<%= _id %>">
+    <form class="form-horizontal" style="padding-top:50px;">
       <div class="form-group">
         <label class="col-sm-2 control-label">标题：</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="J_title" placeholder="标题" value=<%= title %> >
+          <input type="text" class="form-control" id="J_title" placeholder="标题" value="" >
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-2 control-label">内容：</label>
         <div class="col-sm-10">
-          <textarea class="form-control" rows="3" id="J_info"><%= info %></textarea>
+          <textarea class="form-control" rows="3" id="J_info"></textarea>
         </div>
       </div>
       <div class="form-group">
@@ -32,7 +32,7 @@ $(function(){
     var $btn = $(this).button('loading')
     e.preventDefault();
     $.ajax({
-        url: "/v1/edit/"+_id,
+        url: "/v1/add",
         type: "POST",
         data:{
           title:$('#J_title').val(),
@@ -40,7 +40,8 @@ $(function(){
         }
     }).done(function(data) {
       $btn.button('reset');
-      window.location.href='http://localhost:8088/articles/'+_id
+      console.log(data)
+      window.location.href='http://localhost:8088/articles/'+data.data._id
         
     }).fail(function(jqXHR, textStatus) {
       $btn.button('reset')

@@ -14,17 +14,22 @@ const myRoutes = (app) => {
   app.use('/', home);
 
   //pages
-  app.get('/articles/:id', articles.getGroup);
-
+  app.get('/articles/:id', articles.getArticle);
   //edit
-  app.get('/articles/:edit/:id', articles.getGroup);
+  app.get('/articles/:edit/:id', articles.editArticle);
+  //add
+  app.use('/add', function (req, res) {
+    res.render('admin/add', {});
+  });
 
   //admin
   app.use('/admin', admin);
 
   //接口
   app.get('/v1/:id', apis.getGroup);
-  app.post('/v1/:id', apis.postGroup);
+  app.post('/v1/edit/:id', apis.postGroup);
+  app.post('/v1/add', apis.addArticles);
+  app.post('/v1/dele', apis.deleArticles);
 
   app.get('/aa', function (req, res) {
     res.send('aa')

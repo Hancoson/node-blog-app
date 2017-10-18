@@ -11,7 +11,8 @@ var _blogSchema = new Schema({
   },
   info: {
     type: 'String'
-  }
+  },
+  publishTime: Date
 });
 
 module.exports = mongoose.model("blogdbs", _blogSchema);

@@ -16,5 +16,9 @@ $ yarn（npm install）
 then
 
 ```sh
+$ npm run dev
+```
+
+```sh
 $ npm start
 ```
