@@ -1,6 +1,6 @@
 # node-app
 
-This is a demo application that integrates node.js, express and mongoose to develop a simple blog application.
+This is a demo application that integrates node.js, express, mongoose and pm2 to develop a simple blog application.
 
 ## Requirements
 
