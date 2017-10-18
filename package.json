@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "pm2 start ./bin/www --watch"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
