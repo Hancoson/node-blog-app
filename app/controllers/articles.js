@@ -21,7 +21,6 @@ exports.getArticle = function (req, res) {
           info: data[0].info,
           publishTime: moment(data[0].publishTime).format('YYYY年MM月DD日 HH:mm:ss')
         });
-
       }
     })
 };
