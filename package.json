@@ -1,7 +1,17 @@
 {
   "name": "node-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "A node app demo",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hancoson/node-app.git"
+  },
+  "devEngines": {
+    "node": "6.x || 7.x",
+    "npm": "3.x || 4.x"
+  },
+  "author": "hancoson#163.com",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "pm2 start ./bin/www --watch"
