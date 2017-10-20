@@ -6,7 +6,7 @@ This is a demo application that integrates node.js, express, mongoose and pm2 to
 
 * [NodeJs](http://nodejs.org) >= 6.x 
 * [Express](http://expressjs.com)
-* [mongodb](http://mongodb.org)
+* [mongoose](http://mongoosejs.com)
 
 ## Install
 
