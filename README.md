@@ -15,13 +15,19 @@ $ git clone git://github.com/Hancoson/node-app.git
 
 $ yarn（npm install）
 ```
-then
+## Start
 
 ```sh
-$ npm run dev
+$ npm run pm2
 ```
 or
 ```sh
 $ npm start
 ```
 Then visit [http://localhost:3088/](http://localhost:3088/)
+
+## Logs
+
+```sh
+$ npm run log
+```
