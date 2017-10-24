@@ -14,7 +14,8 @@
   "author": "hancoson#163.com",
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "pm2 start ./bin/www --watch"
+    "pm2": "pm2 start process.yml",
+    "log": "pm2 log"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
