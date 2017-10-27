@@ -24,7 +24,7 @@ or
 ```sh
 $ npm start
 ```
-Then visit [http://localhost:3088/](http://localhost:3088/)
+Then visit [http://localhost:8088/](http://localhost:8088/)
 
 ## Logs
 
