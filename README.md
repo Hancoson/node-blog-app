@@ -13,9 +13,19 @@ This is a demo application that integrates node.js, express, mongoose and pm2 to
 ```sh
 $ git clone git://github.com/Hancoson/node-app.git
 
-$ yarn（npm install）
+$ yarn（npm i)
 ```
-## Start
+
+## Datebase
+```sh
+$ npm i -g mongoose
+$ npm i -g mongodb
+```
+
+## Start Mongo
+
+
+## Start App
 
 ```sh
 $ npm run pm2

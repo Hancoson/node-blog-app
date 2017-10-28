@@ -19,6 +19,12 @@ header h1 {
   z-index: 10;
 }
 
+.home-btn {
+  position: absolute;
+  right: 90px;
+  z-index: 10;
+}
+
 .home-items {
   width: 100%;
   margin-top: 20px;
