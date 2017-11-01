@@ -24,6 +24,10 @@ $ npm i -g mongodb
 
 ## Start Mongo
 
+```sh
+$ mongod
+```
+
 
 ## Start App
 
