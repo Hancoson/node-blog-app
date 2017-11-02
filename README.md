@@ -16,10 +16,9 @@ $ git clone git://github.com/Hancoson/node-app.git
 $ yarn（npm i)
 ```
 
-## Datebase
+## Install mongodb
 ```sh
-$ npm i -g mongoose
-$ npm i -g mongodb
+$ brew install mongodb
 ```
 
 ## Start Mongo
