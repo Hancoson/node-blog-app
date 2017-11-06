@@ -26,6 +26,20 @@ $ brew install mongodb
 ```sh
 $ mongod
 ```
+or
+```sh
+$ brew services start mongodb
+```
+
+last
+```sh
+$ mongo
+```
+
+## Create a datebase
+```sh
+$ use {nodeApp}
+```
 
 
 ## Start App
