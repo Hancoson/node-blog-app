@@ -1,4 +1,7 @@
 # node-app
+[![GitHub license](https://img.shields.io/github/license/Hancoson/node-app.svg)](https://github.com/Hancoson/node-app/blob/master/LICENSE)
+[![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg)](https://github.com/Hancoson/node-app)
+[![MyGet tenant](https://img.shields.io/dotnet.myget/dotnet-coreclr/dt/Microsoft.DotNet.CoreCLR.svg)](https://github.com/Hancoson/node-app)
 
 This is a demo application that integrates node.js, express, mongoose and pm2 to develop a simple blog application.
 
