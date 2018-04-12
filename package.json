@@ -1,6 +1,6 @@
 {
   "name": "node-app",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "A node app demo",
   "private": true,
   "repository": {
@@ -8,8 +8,8 @@
     "url": "https://github.com/Hancoson/node-app.git"
   },
   "devEngines": {
-    "node": "6.x || 7.x",
-    "npm": "3.x || 4.x"
+    "node": ">=6.x",
+    "npm": ">=3.x "
   },
   "author": "hancoson#163.com",
   "scripts": {
