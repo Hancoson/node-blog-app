@@ -61,3 +61,8 @@ Then visit [http://localhost:8088/](http://localhost:8088/)
 ```sh
 $ npm run log
 ```
+
+## 更新日志
+
+- 主题添加 Gzip & cache-control 功能（2018/04/23）
+- 添加日志功能模块（2018/04/11）
