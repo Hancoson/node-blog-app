@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('./services/logger')
+const compression = require('compression');
 require('./models/db')
 const app = express();
 
@@ -20,8 +21,8 @@ app.use(logger.express);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 1000 * 60 * 60 }));
+app.use(compression());//gzip压缩
 require('./routes/index')(app);
 
 // catch 404 and forward to error handler
