@@ -5,6 +5,11 @@
   */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+
+const Schemas = require('./../services/Schemas')
+
+console.log(Schemas)
 var _blogSchema = new Schema({
   title: {
     type: 'String'

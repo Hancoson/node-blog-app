@@ -8,7 +8,7 @@ index.html
 #node
 /node_modules
 npm-debug.log
-.log
+*.log
 
 #IDE
 .idea
@@ -16,4 +16,4 @@ npm-debug.log
 
 #www
 
-bin/logs/
+*.log
