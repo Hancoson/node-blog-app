@@ -4,9 +4,9 @@
  * @version 0.0.1
   */
 const mongoose = require('mongoose');
-const blogdbs = mongoose.model('blogdbs');
-exports.getGroup = function (req, res) {
+//const blogdbs = mongoose.model('blogdbs');
+/* exports.getGroup = function (req, res) {
   blogdbs.find({}).exec(function (err, data) {
     res.render('index', { data: data });
   });
-};
+}; */

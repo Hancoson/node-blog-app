@@ -4,23 +4,26 @@
  * @version 0.0.1
   */
 const moment = require('moment');
-const mongoose = require('mongoose');
-const blogdbs = mongoose.model('blogdbs');
+//const mongoose = require('mongoose');
+//const blogdbs = mongoose.model('blogdbs');
+
+const home = require('./../models/home')
+
 exports.getGroup = function (req, res) {
   /**
    * 查询所有文章
    */
-  blogdbs.find({}, function (err, data) {
-    if (!data) {
-      res.json({ code: 404, msg: "Empty" });
-    } else {
-      if (req.params.id === 'home') {
-        res.json({ code: 200, msg: "success", data: data, count: data.length, refer: req.params });
-      } else {
-        res.json({ code: 404, msg: "Empty" });
-      }
+  var tableName = 'blogdbs'
+  home.list(tableName, null, function (err, data) {
+    if (err) {
+      res.json(err);
+    }
+    else {
+      console.log(data)
+      res.json(data)
     }
   })
+
 };
 exports.postGroup = function (req, res) {
   const query = {
@@ -44,21 +47,20 @@ exports.postGroup = function (req, res) {
 
 };
 exports.addArticles = function (req, res) {
-  console.log(req.body)
   /**
    * 新增
    */
-  const data = new blogdbs({ title: req.body.title, info: req.body.info, publishTime: new Date() });
-
-  data.save(function (err) { // 执行保存，并查看返回情况
+  var tableName = 'blogdbs'
+  var addDate = { title: req.body.title, info: req.body.info, publishTime: new Date() }
+  home.add(tableName, addDate, function (err, data) {
     if (err) {
-      res.json({ code: 0, msg: "err" });
-    } else {
-      res.json({ code: 200, msg: "success", data: data, count: data.length, refer: req.params });
-
+      res.json(err);
+    }
+    else {
+      console.log(data)
+      res.json(data)
     }
   })
-
 };
 exports.deleArticles = function (req, res) {
   console.log(req.body)

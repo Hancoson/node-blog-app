@@ -1,36 +1,36 @@
-<% include layout/head %> 
+<% include layout/head %>
     <header>
         <h1>欢迎到来！</h1>
     </header>
     <div class="container">
         <ul id="J_list" class="home-items">
-            
+
         </ul>
     </div>
-<script>
-$(function(){
-    $.ajax({
-        url: "v1/home"
-    }).done(function(data) {
-        var _list = $('#J_list');
-        var _tpl =[];
-        if(data.code===200&&data.data.length>0){
-            data.data.forEach(function(v,i){
-                var _t = moment(v.publishTime).format('YYYY年MM月DD日');   
-                _tpl.push([
-                    '<li class="">',
-                    '<a href="articles/'+v._id+'">',
-                    '<h3>'+v.title+'</h3>',
-                    '<p style="font-size:12px;color:#999">'+_t+'</p>',
-                    '<p>'+v.info+'</p>',
-                    '</a>',
-                    '<a href="articles/edit/'+v._id+'">编辑</a>',
-                    '</li>'
-                ].join(''))
-            })
-            _list.html(_tpl)
-        }
-    });
-})
-</script>
-<% include layout/foot %>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "v1/home"
+            }).done(function (data) {
+                var _list = $('#J_list');
+                var _tpl = [];
+                if (data.status === 200 && data.data.length > 0) {
+                    data.data.forEach(function (v, i) {
+                        var _t = moment(v.publishTime).format('YYYY年MM月DD日');
+                        _tpl.push([
+                            '<li class="">',
+                            '<a href="articles/' + v._id + '">',
+                            '<h3>' + v.title + '</h3>',
+                            '<p style="font-size:12px;color:#999">' + _t + '</p>',
+                            '<p>' + v.info + '</p>',
+                            '</a>',
+                            '<a href="articles/edit/' + v._id + '">编辑</a>',
+                            '</li>'
+                        ].join(''))
+                    })
+                    _list.html(_tpl)
+                }
+            });
+        })
+    </script>
+    <% include layout/foot %>

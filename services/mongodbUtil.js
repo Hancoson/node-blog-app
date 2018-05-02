@@ -52,15 +52,37 @@ DB.prototype.getConnection = function (table_name) {
  */
 DB.prototype.find = function (table_name, conditions, callback) {
   var node_model = this.getConnection(table_name);
-  node_model.find({}, function (err, data) {
-    if (!data) {
-      res.json({ code: 404, msg: "Empty" });
-    } else {
-      if (req.params.id === 'home') {
-        res.json({ code: 200, msg: "success", data: data, count: data.length, refer: req.params });
-      } else {
-        res.json({ code: 404, msg: "Empty" });
-      }
+  node_model.find(conditions || {}, function (err, res) {
+    if (err) {
+      callback(err);
+    }
+    else {
+      callback(null, res);
     }
   })
 }
+
+/**
+ * 保存数据
+ * @param table_name 表名
+ * @param fields 表数据
+ * @param callback 回调方法
+ */
+DB.prototype.save = function (table_name, fields, callback) {
+  if (!fields) {
+    if (callback) callback({ msg: 'Field is not allowed for null' });
+    return false;
+  }
+
+  var node_model = this.getConnection(table_name);
+  var mongooseEntity = new node_model(fields);
+  mongooseEntity.save(function (err, res) {
+    if (err) {
+      if (callback) callback(err);
+    } else {
+      if (callback) callback(null, res);
+    }
+  });
+};
+
+module.exports = new DB();

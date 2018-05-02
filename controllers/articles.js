@@ -3,17 +3,21 @@
  * @Date: 2017-10-17 14:21:01
  * @version 0.0.1
   */
-const moment = require('moment');
-const mongoose = require('mongoose');
-const blogdbs = mongoose.model('blogdbs');
+const moment = require('moment')
+const articles = require('./../models/articles')
 
 exports.getArticle = function (req, res) {
-  blogdbs.find({
+
+  var tableName = 'blogdbs'
+  articles.list(tableName, {
     _id: req.params.id
   }, function (err, data) {
-    if (!data) {
+    if (err) {
       res.render('404', { title: 404 });
-    } else {
+    }
+    else {
+      console.log(data)
+      data = data.data
       res.render('articles', {
         _id: data[0]._id,
         title: data[0].title,
@@ -23,6 +27,7 @@ exports.getArticle = function (req, res) {
     }
   })
 };
+/*
 exports.editArticle = function (req, res) {
   blogdbs.find({
     _id: req.params.id
@@ -38,4 +43,4 @@ exports.editArticle = function (req, res) {
 
     }
   })
-};
+}; */
