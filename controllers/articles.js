@@ -27,14 +27,16 @@ exports.getArticle = function (req, res) {
     }
   })
 };
-/*
+
 exports.editArticle = function (req, res) {
-  blogdbs.find({
+  var tableName = 'blogdbs'
+  articles.list(tableName, {
     _id: req.params.id
   }, function (err, data) {
     if (err) {
       res.render('404', { title: 404 });
     } else {
+      data = data.data
       res.render('admin/edit', {
         _id: data[0]._id,
         title: data[0].title,
@@ -43,4 +45,42 @@ exports.editArticle = function (req, res) {
 
     }
   })
-}; */
+};
+
+
+exports.updateArticle = function (req, res) {
+  const query = {
+    _id: req.params.id
+  };
+  var tableName = 'blogdbs'
+  const newDate = {
+    title: req.body.title,
+    info: req.body.info
+  };
+
+  articles.update(tableName, query, newDate, function (err, data) {
+    if (err) {
+      res.json(err);
+    }
+    else {
+      res.json(data)
+    }
+  })
+
+};
+
+exports.deleArticles = function (req, res) {
+  const query = {
+    _id: req.body.id
+  };
+  var tableName = 'blogdbs'
+
+  articles.remove(tableName, query, function (err, data) {
+    if (err) {
+      res.json(err);
+    }
+    else {
+      res.json(data)
+    }
+  })
+};

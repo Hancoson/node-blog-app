@@ -4,9 +4,6 @@
  * @version 0.0.1
   */
 const moment = require('moment');
-//const mongoose = require('mongoose');
-//const blogdbs = mongoose.model('blogdbs');
-
 const home = require('./../models/home')
 
 exports.getGroup = function (req, res) {
@@ -19,29 +16,7 @@ exports.getGroup = function (req, res) {
       res.json(err);
     }
     else {
-      console.log(data)
       res.json(data)
-    }
-  })
-
-};
-exports.postGroup = function (req, res) {
-  const query = {
-    _id: req.params.id
-  };
-  const options = {
-    multi: true
-  };
-  blogdbs.update(query, {
-    $set: {
-      title: req.body.title,
-      info: req.body.info
-    }
-  }, options, function (err, data) {
-    if (err) {
-      res.json({ code: 0, msg: "err" });
-    } else {
-      res.json({ code: 200, msg: "success", data: data, count: data.length, refer: req.params });
     }
   })
 
@@ -57,25 +32,7 @@ exports.addArticles = function (req, res) {
       res.json(err);
     }
     else {
-      console.log(data)
       res.json(data)
     }
   })
-};
-exports.deleArticles = function (req, res) {
-  console.log(req.body)
-  /**
-   * 删除
-   */
-  var _id = req.body.id;
-  blogdbs.remove({
-    _id: _id
-  }, function (err, data) {
-    if (err) {
-      res.json({ code: 0, msg: "err" });
-    } else {
-      res.json({ code: 200, msg: "dele success", data: data, count: data.length, refer: req.params });
-    }
-  })
-
 };

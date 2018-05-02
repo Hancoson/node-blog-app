@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('./services/logger')
 const compression = require('compression');
-//require('./models/db')
 const app = express();
 
 // view engine setup

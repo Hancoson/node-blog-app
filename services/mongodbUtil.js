@@ -85,4 +85,42 @@ DB.prototype.save = function (table_name, fields, callback) {
   });
 };
 
+
+/**
+ * 更新数据方法(带操作符的)
+ * @param table_name 数据表名
+ * @param conditions 更新条件 {_id: id}
+ * @param update_fields 更新的操作符 {$set: {id: 123}}
+ * @param options 参数
+ * @param callback 回调方法
+ */
+DB.prototype.update = function (table_name, conditions, update_fields, options, callback) {
+  if (!update_fields || !conditions) {
+    if (callback) callback({ msg: 'Parameter error' });
+    return;
+  }
+  var node_model = this.getConnection(table_name);
+  node_model.update(conditions, update_fields, options, function (err, res) {
+    if (callback) callback(err, res);
+  });
+};
+
+
+/**
+ * 删除数据
+ * @param table_name 表名
+ * @param conditions 删除需要的条件 {_id: id}
+ * @param callback 回调方法
+ */
+DB.prototype.remove = function (table_name, conditions, callback) {
+  var node_model = this.getConnection(table_name);
+  node_model.remove(conditions, function (err, res) {
+    if (err) {
+      if (callback) callback(err);
+    } else {
+      if (callback) callback(null, res);
+    }
+  });
+};
+
 module.exports = new DB();
