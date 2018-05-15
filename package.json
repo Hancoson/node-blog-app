@@ -1,7 +1,7 @@
 {
   "name": "node-app",
-  "version": "2.0.1",
-  "description": "A node app demo",
+  "version": "3.0.0",
+  "description": "A node blog",
   "private": true,
   "repository": {
     "type": "git",
@@ -13,33 +13,17 @@
   },
   "author": "hancoson#163.com",
   "scripts": {
-    "start": "node ./bin/www",
-    "pm2": "pm2 start process.yml",
-    "log": "pm2 log"
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
-    "compression": "^1.7.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "ejs": "~2.5.7",
-    "express": "~4.15.5",
-    "express-mongoose": "^0.1.0",
-    "log4js": "^2.5.3",
-    "moment": "^2.19.1",
-    "mongoose": "^4.12.2",
-    "morgan": "~1.9.0",
+    "express": "^4.14.0",
+    "next": "^6.0.2",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "serve-favicon": "~2.4.5"
+    "react-dom": "^16.3.2"
   },
   "devDependencies": {
-    "file-loader": "^1.1.11",
-    "html-loader": "^0.5.5",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "style-loader": "^0.21.0",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.8.1"
+    "babel-plugin-transform-runtime": "^6.23.0"
   }
 }
