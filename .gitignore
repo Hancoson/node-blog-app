@@ -15,7 +15,5 @@ npm-debug.log
 .vscode
 
 #www
-
 *.log
-
-/old
+.next

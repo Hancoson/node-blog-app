@@ -1,69 +1,48 @@
-# node-app
-[![GitHub license](https://img.shields.io/github/license/Hancoson/node-app.svg)](https://github.com/Hancoson/node-app/blob/master/LICENSE)
-[![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg)](https://github.com/Hancoson/node-app)
-[![MyGet tenant](https://img.shields.io/dotnet.myget/dotnet-coreclr/dt/Microsoft.DotNet.CoreCLR.svg)](https://github.com/Hancoson/node-app)
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/custom-server-express)
 
-This is a demo application that integrates node.js, express, mongoose and pm2, log4js to develop a simple blog application.
+# Custom Express Server example
 
-## Requirements
+## How to use
 
-* [NodeJs](http://nodejs.org) >= 6.x 
-* [Express](http://expressjs.com)
-* [mongoose](http://mongoosejs.com)
+### Using `create-next-app`
 
-## Install
+Execute [`create-next-app`](https://github.com/segmentio/create-next-app) with [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) or [npx](https://github.com/zkat/npx#readme) to bootstrap the example:
 
-```sh
-$ git clone git://github.com/Hancoson/node-app.git
-
-$ yarn（npm i)
+```bash
+npx create-next-app --example custom-server-express custom-server-express-app
+# or
+yarn create next-app --example custom-server-express custom-server-express-app
 ```
 
-## Install mongodb
-```sh
-$ brew install mongodb
+### Download manually
+
+Download the example [or clone the repo](https://github.com/zeit/next.js):
+
+```bash
+curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/custom-server-express
+cd custom-server-express
 ```
 
-## Start Mongo
+Install it and run:
 
-```sh
-$ mongod
-```
-or
-```sh
-$ brew services start mongodb
-```
-
-last
-```sh
-$ mongo
+```bash
+npm install
+npm run dev
+# or
+yarn
+yarn dev
 ```
 
-## Create a datebase
-```sh
-$ use {nodeApp}
+Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.co/download))
+
+```bash
+now
 ```
 
+## The idea behind the example
 
-## Start App
+Most of the times the default Next server will be enough but sometimes you want to run your own server to customize routes or other kind of the app behavior. Next provides a [Custom server and routing](https://github.com/zeit/next.js#custom-server-and-routing) so you can customize as much as you want.
 
-```sh
-$ npm run pm2
-```
-or
-```sh
-$ npm start
-```
-Then visit [http://localhost:8088/](http://localhost:8088/)
+Because the Next.js server is just a node.js module you can combine it with any other part of the node.js ecosystem. in this case we are using express to build a custom router on top of Next.
 
-## Logs
-
-```sh
-$ npm run log
-```
-
-## 更新日志
-
-- 主题添加 Gzip & cache-control 功能（2018/04/23）
-- 添加日志功能模块（2018/04/11）
-- 项目目录结构优化（MVC）（2018/05/2）
+The example shows a server that serves the component living in `pages/a.js` when the route `/b` is requested and `pages/b.js` when the route `/a` is accessed. This is obviously a non-standard routing strategy. You can see how this custom routing is being made inside `server.js`.

@@ -1,29 +1,21 @@
 {
-  "name": "node-app",
-  "version": "3.0.0",
-  "description": "A node blog",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Hancoson/node-app.git"
-  },
-  "devEngines": {
-    "node": ">=6.x",
-    "npm": ">=3.x "
-  },
-  "author": "hancoson#163.com",
+  "name": "node-blog-app",
+  "version": "1.0.0",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "**/node_modules/**"
+    ]
+  },
   "dependencies": {
-    "express": "^4.14.0",
+    "express": "^4.16.3",
     "next": "^6.0.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-runtime": "^6.23.0"
   }
 }
