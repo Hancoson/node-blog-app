@@ -1,0 +1,45 @@
+/**
+ * @Author: Guoxing.han 
+ * @Date: 2018-05-16 18:36:22 
+ * @version 0.0.1 
+ */
+
+@import "./../../node_modules/antd/dist/antd.css";
+header {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(45deg, #020031 0, #6d3353 100%);
+  color: #fff;
+  margin-bottom: 0;
+  padding-bottom: 50px;
+  padding-top: 20px;
+  h1 {
+    font-size: 40px;
+    text-shadow: -5px 5px 0 rgba(0, 0, 0, .1);
+  }
+}
+
+.add-btn {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+
+.home-btn {
+  position: absolute;
+  right: 90px;
+  z-index: 10;
+}
+
+.home-items {
+  width: 100%;
+  margin-top: 20px;
+  list-style: none;
+  li {
+    float: left;
+    padding: 20px;
+    a {
+      color: #333;
+    }
+  }
+}

@@ -13,9 +13,22 @@
     ]
   },
   "dependencies": {
+    "antd": "^3.5.2",
     "express": "^4.16.3",
+    "isomorphic-unfetch": "^2.0.0",
+    "moment": "^2.22.1",
+    "mongoose": "^5.1.1",
     "next": "^6.0.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.5.0",
+    "glob": "^7.1.2",
+    "node-sass": "^4.9.0",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^2.1.5",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^7.0.1"
   }
 }

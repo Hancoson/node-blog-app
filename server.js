@@ -6,26 +6,13 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+const myRoutes = require('./server/routes')
+
 app.prepare()
   .then(() => {
     const server = express()
 
-    server.get('/a', (req, res) => {
-      return app.render(req, res, '/b', req.query)
-    })
-
-    server.get('/b', (req, res) => {
-      console.log(1111)
-      return app.render(req, res, '/a', req.query)
-    })
-
-    server.get('/posts/:id', (req, res) => {
-      return app.render(req, res, '/posts', { id: req.params.id })
-    })
-
-    server.get('*', (req, res) => {
-      return handle(req, res)
-    })
+    myRoutes(server, handle);
 
     server.listen(port, (err) => {
       if (err) throw err
