@@ -3,6 +3,7 @@
     "next/babel"
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    "transform-decorators-legacy"
   ]
 }

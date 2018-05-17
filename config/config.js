@@ -4,7 +4,9 @@
  * @version 0.0.1
   */
 module.exports = {
-  serverPort: 8088, //监听端口
+  port: 3080, //监听端口
+  host: 'http://localhost',
+  apiVersion: 'v1',
   webTitle: ' ', //web页面title
 
   /******* mongodbl*****相关配置*******/

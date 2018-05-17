@@ -6,44 +6,41 @@
 const home = require('./../controllers/home');
 const articles = require('./../controllers/articles');
 const apis = require('./../controllers/apis');
+const config = require('./../../config/config')
 
-const myRoutes = (app, handle) => {
-
-  app.get('/a', (req, res) => {
-    return app.render(req, res, '/b', req.query)
-  })
-
-  app.get('/b', (req, res) => {
-    console.log(1111)
-    return app.render(req, res, '/a', req.query)
-  })
-
-  app.get('/posts/:id', (req, res) => {
-    return app.render(req, res, '/posts', { id: req.params.id })
-  })
-
-  //home
-  app.use('/', home);
+const myRoutes = (server, app, handle) => {
 
   //add
-  app.use('/add', function (req, res) {
+  server.use('/add', function (req, res) {
     res.render('admin/add', {});
   });
 
   //接口 API
-  app.get('/v1/:id', apis.getGroup);
-  app.post('/v1/add', apis.addArticles);
+  server.get(`/${config.apiVersion}/:id`, apis.getGroup);
+  server.post(`/${config.apiVersion}/add`, apis.addArticles);
+  server.get(`/${config.apiVersion}/article/:id`, articles.getArticle);
 
   //pages
-  app.get('/articles/:id', articles.getArticle);
+  //server.get('/articles/:id', articles.getArticle);
   //edit
-  app.get('/articles/:edit/:id', articles.editArticle);
-  app.post('/v1/edit/:id', articles.updateArticle);
+  server.post(`/${config.apiVersion}/edit/:id`, articles.updateArticle);
 
 
-  app.post('/v1/dele', articles.deleArticles);
+  server.post(`/${config.apiVersion}/dele`, articles.deleArticles);
 
-  app.get('*', (req, res) => {
+
+  server.get('/article/:id', (req, res) => {
+    return app.render(req, res, '/article', {
+      id: req.params.id
+    })
+  })
+  server.get('/admin/edit/:id', (req, res) => {
+    return app.render(req, res, '/admin/edit', {
+      id: req.params.id
+    })
+  })
+
+  server.get('*', (req, res) => {
     return handle(req, res)
   })
 }

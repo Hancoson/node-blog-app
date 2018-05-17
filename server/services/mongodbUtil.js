@@ -11,7 +11,7 @@ const Schema = mongoose.Schema;
 const config = require('./../../config/config')
 const Schemas = require('./../services/Schemas')
 
-mongoose.connect(config.mongoose, { useMongoClient: true });
+mongoose.connect(config.mongoose);
 const mongoConnect = mongoose.connection;
 mongoConnect.on('connected', function () {
   console.log('Mongoose connected to' + config.mongoose)

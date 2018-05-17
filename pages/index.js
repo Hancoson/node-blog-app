@@ -1,51 +1,49 @@
+/**
+ * @Author: Guoxing.han 
+ * @Date: 2018-05-17 11:11:57 
+ * @version 0.0.1 
+ */
 import React from 'react'
 import Link from 'next/link'
 import 'isomorphic-unfetch'
 import moment from 'moment'
 
-import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
+import config from './../config/config'
 
-import stylesheet from './../assets/scss/style.scss'
+import MianLayout from '../components/layout'
+
+
+
 
 export default class Index extends React.Component {
   static async getInitialProps() {
-    const res = await fetch('http://localhost:3080/v1/home')
+    const res = await fetch(`${config.host}:${config.port}/${config.apiVersion}/home`)
     const json = await res.json()
     return { stars: json.data }
   }
 
   render() {
     return (
-      <>
-        <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-        <Layout>
-          <Header>Header111</Header>
-          <Content>Content</Content>
-          <Footer>Footer</Footer>
-        </Layout>
+      <MianLayout>
 
-        <ul>
+        <ul className="index-items">
           {this.props.stars.map((v, i) => {
             let _t = moment(v.publishTime).format('YYYY年MM月DD日');
-            let _link = `articles/${v._id}`
             let _linkEdit = `articles/edit/${v._id}`
             return (
               <li key={i}>
-                <Link prefetch href={_link}>
-                  <a>
-                    <h3>{v.title} </h3>
-                    <p>{_t} </p>
-                    <p>{v.info} + '</p>
-                  </a>
-                </Link>
-                <Link prefetch href={_linkEdit}><a>编辑</a></Link>
+                <Link href={{ pathname: '/article', query: { id: v._id } }} as={`/article/${v._id}`}><a className="title">{v.title} </a></Link>
+                <div className="times">
+                  {_t}
+                </div>
+                <div className="content">
+                  {v.info}
+                </div>
               </li>
             )
           })}
         </ul>
-      </>
+      </MianLayout>
     )
-
   }
 }
