@@ -23,7 +23,21 @@ const myRoutes = (server, app, handle) => {
   //pages
   //server.get('/articles/:id', articles.getArticle);
   //edit
-  server.post(`/${config.apiVersion}/edit/:id`, articles.updateArticle);
+  //server.post(`/${config.apiVersion}/edit/:id`, articles.updateArticle);
+  server.post(`/${config.apiVersion}/edit/:id`, async context => {
+    //const body = context.request.body
+    const { req, res, params, ip } = context
+
+    console.log(req, res)
+
+    const result = await apis.comment(Object.assign(body, {
+      ip: ip,
+      id: params.id,
+      ua: req.headers['user-agent']
+    }), res, req.method)
+    context.body = result
+    context.respond = true
+  });
 
 
   server.post(`/${config.apiVersion}/dele`, articles.deleArticles);

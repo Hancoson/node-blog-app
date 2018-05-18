@@ -6,7 +6,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import 'isomorphic-unfetch'
+import axios from 'axios';
 
 import { Form, Input, TextArea, Button, Row, Col } from 'antd';
 const FormItem = Form.Item;
@@ -23,20 +23,21 @@ class MyForm extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const that = this
     const _url = this.props.url
-    fetch(`${config.host}:${config.port}/${config.apiVersion}/article/${_url.query.id}`, {
-      method: 'GET'
+    axios({
+      method: 'get',
+      url: `${config.host}:${config.port}/${config.apiVersion}/article/${_url.query.id}`,
+    }).then(res => {
+      const data = res.data
+      console.log(data)
+      that.setState({
+        data: data[0]
+      })
+    }).then(err => {
+      console.log(err)
     })
-      .then((res) => {
-        return res.json()
-      })
-      .then((res) => {
-        that.setState({
-          data: res[0]
-        })
-      })
   }
 
   handleSubmit = (e) => {
@@ -46,19 +47,16 @@ class MyForm extends React.Component {
     const _url = this.props.url
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        fetch(`${config.host}:${config.port}/${config.apiVersion}/edit/${_url.query.id}`, {
-          method: 'POST',
-          body: Object.assign(values)
+        axios({
+          method: 'post',
+          url: `${config.host}:${config.port}/${config.apiVersion}/edit/${_url.query.id}`,
+          data: Object.assign({}, values)
+        }).then(res => {
+          console.log(res)
+        }).then(err => {
+          console.log(err)
         })
-          .then((res) => {
-            return res.json()
-          })
-          .then((res) => {
-            console.log(res)
-          })
-          .then((err) => {
-            console.log(err)
-          })
+
       }
     });
   }

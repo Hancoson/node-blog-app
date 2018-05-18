@@ -16,15 +16,8 @@ exports.getArticle = function (req, res) {
       res.json(err);
     }
     else {
-      console.log(data)
       data = data.data
       res.json(data)
-      /* res.render('articles', {
-        _id: data[0]._id,
-        title: data[0].title,
-        info: data[0].info,
-        publishTime: moment(data[0].publishTime).format('YYYY年MM月DD日 HH:mm:ss')
-      }); */
     }
   })
 };
@@ -35,7 +28,7 @@ exports.updateArticle = function (req, res) {
   const query = {
     _id: req.params.id
   };
-  console.log(req.body)
+  console.log(req)
   var tableName = 'blogdbs'
   const newDate = {
     title: req.body.title,
