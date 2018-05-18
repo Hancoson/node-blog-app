@@ -1,48 +1,96 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/custom-server-express)
+# node-app
+[![GitHub license](https://img.shields.io/github/license/Hancoson/node-blog-app.svg)](https://github.com/Hancoson/node-app/blob/master/LICENSE)
+[![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg)](https://github.com/Hancoson/node-blog-app)
+[![MyGet tenant](https://img.shields.io/dotnet.myget/dotnet-coreclr/dt/Microsoft.DotNet.CoreCLR.svg)](https://github.com/Hancoson/node-blog-app)
 
-# Custom Express Server example
+This is a demo application that integrates node.js, express, mongoose React and Nextjs to develop a simple blog application.
 
-## How to use
+## 介绍
 
-### Using `create-next-app`
+该项目通过使用 Nextjs 技术，实现了 React 同构方案。采用 Nodejs 搭建服务，结合 Mongoose 数据库，实现了一个简单的博客系统。
+也可以参考项目 [v1.0 版本通过 Ejs 模版](https://github.com/Hancoson/node-blog-app/tree/ejs-tpl)的实现，[相关文章>>](http://www.vsoui.com/2017/10/19/node-blog-demo/)。
 
-Execute [`create-next-app`](https://github.com/segmentio/create-next-app) with [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) or [npx](https://github.com/zkat/npx#readme) to bootstrap the example:
+### 技术实现
 
-```bash
-npx create-next-app --example custom-server-express custom-server-express-app
-# or
-yarn create next-app --example custom-server-express custom-server-express-app
+- [x] Node > 8.x
+- [x] Express
+- [x] mongoose
+- [x] react > 16.x
+- [x] Nextjs
+- [x] sass
+- [x] isomorphic-unfetch
+
+### 目录结构
+
+```sh
+├─server # 服务
+│  ├─controllers # 控制器
+│  ├─dto  #
+│  ├─models # 模型
+│  ├─routes  # 路由
+│  └─service
+├─pages # 页面
+│  ├─…… #
+│  └─index.js # 主页面
+├─compontents # 组件
+│  └─#……
+├─config # 配置文件
+│  └─#……
+├─assets # 静态资源
+│  └─#……
+├─build # 发布目录
+│  └─ #……
+├─next.config.js # next配置文件
+├─package.json
+├─postcss.config.js # postcss配置
+├─server.js # 服务入口文件
+└─.babelrc
 ```
 
-### Download manually
+## 如何使用
 
-Download the example [or clone the repo](https://github.com/zeit/next.js):
+主要针对我当前的项目>> [node-blog-app](https://github.com/Hancoson/node-blog-app) 来说说使用方法：
 
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/custom-server-express
-cd custom-server-express
-```
+### Install
 
-Install it and run:
+```sh
+git clone https://github.com/Hancoson/node-blog-app.git
 
-```bash
-npm install
-npm run dev
-# or
 yarn
-yarn dev
 ```
 
-Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.co/download))
+### Install mongodb
 
-```bash
-now
+```sh
+brew install mongodb
 ```
 
-## The idea behind the example
+### Start Mongo
 
-Most of the times the default Next server will be enough but sometimes you want to run your own server to customize routes or other kind of the app behavior. Next provides a [Custom server and routing](https://github.com/zeit/next.js#custom-server-and-routing) so you can customize as much as you want.
+```sh
+mongod
+# or
+brew services start mongodb
+```
 
-Because the Next.js server is just a node.js module you can combine it with any other part of the node.js ecosystem. in this case we are using express to build a custom router on top of Next.
+最后执行：
 
-The example shows a server that serves the component living in `pages/a.js` when the route `/b` is requested and `pages/b.js` when the route `/a` is accessed. This is obviously a non-standard routing strategy. You can see how this custom routing is being made inside `server.js`.
+```sh
+mongo
+```
+
+### Create a datebase
+
+```sh
+use {nodeApp}
+```
+
+### Start App
+
+```sh
+npm run dev #(start dev)
+
+npm run build #(构建)
+
+npm start #(启动项目)
+```
