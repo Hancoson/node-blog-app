@@ -23,9 +23,10 @@ const myRoutes = (server, app, handle) => {
   //pages
   //server.get('/articles/:id', articles.getArticle);
   //edit
-  //server.post(`/${config.apiVersion}/edit/:id`, articles.updateArticle);
-  server.post(`/${config.apiVersion}/edit/:id`, async context => {
+  server.post(`/${config.apiVersion}/edit/:id`, articles.updateArticle);
+  /* server.post(`/${config.apiVersion}/edit/:id`, async context => {
     //const body = context.request.body
+    console.log(context,'--------')
     const { req, res, params, ip } = context
 
     console.log(req, res)
@@ -37,7 +38,7 @@ const myRoutes = (server, app, handle) => {
     }), res, req.method)
     context.body = result
     context.respond = true
-  });
+  }); */
 
 
   server.post(`/${config.apiVersion}/dele`, articles.deleArticles);

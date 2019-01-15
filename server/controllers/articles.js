@@ -28,7 +28,7 @@ exports.updateArticle = function (req, res) {
   const query = {
     _id: req.params.id
   };
-  console.log(req)
+  console.log(121212,req)
   var tableName = 'blogdbs'
   const newDate = {
     title: req.body.title,
